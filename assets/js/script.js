@@ -1,6 +1,6 @@
  
 var getMusic = function () {
-var fetchURL = 'https://api.uberchord.com/v1';
+var fetchURL = '';
 
 fetch(fetchURL)
   .then(function (response) {
