@@ -1,16 +1,19 @@
 # Project proposal
 _Authors, Benjamin Zah & Michael Hoyle_
 
-Our goal is to make a web page with  music related API. TheAudioDB & UberChord, 
-
+​
+Our goal is to make a web application that takes song lyrics, targets specific words, and changes them with a synonym to create a funny parody of the song lyrics. 
+​
 ## APIs
+​
+* [Musixmatch](https://developer.musixmatch.com/)
+* [WordsAPI](https://www.wordsapi.com/)
 
-* [TheAudioDB](https://www.theaudiodb.com/)
-* [UberChord](https://api.uberchord.com/)
 _both APIs are free of use for these requirements_
-
+​
 ## Future functions
-
+​
 * User able to search/find desired song
-* Search results will include music video, lyrics, and visual guitar chords of song
-* Data will be stored locally so that users can revisit guitar chord list
+* User will then be able to target specific reoccuring words in the song
+* User is then able to pick through several suggested synonyms in the song to create a funny parody
+
