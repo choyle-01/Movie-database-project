@@ -1,5 +1,6 @@
-var searchForm = document.querySelector('#search-form')
-var inputTxt = document.querySelector('#inputText')
+const searchForm = document.querySelector('#search-form')
+const inputTxt = document.querySelector('#inputText')
+const searchLog = document.createElement('div')
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -8,7 +9,7 @@ var formSubmitHandler = function (event) {
 
   if (movieName) {
     getMovie(movieName);
-    getgiphy(movieName);
+    getGiphy(movieName);
   }
 };
 
@@ -27,7 +28,8 @@ var getMovie = function (movie) {
     console.log(err);
   });
 }
-var getgiphy = function (movie) {
+
+var getGiphy = function (movie) {
   var gifKey = 'fAFBnnC9FOkKZx1M1xDCXcB0TBTgjgCJ'
   var fetchURL = `https://api.giphy.com/v1/channels/search?api_key=${gifKey}&q=${movie}`;
   
