@@ -2,18 +2,19 @@
 _Authors, Benjamin Zah & Michael Hoyle_
 
 ​
-Our goal is to make a web application that takes song lyrics, targets specific words, and changes them with a synonym to create a funny parody of the song lyrics. 
+Our goal is to make a web application that takes searched movie from database and populates the app with gifs from the movie and related actors. 
 ​
 ## APIs
 ​
-* [Musixmatch](https://developer.musixmatch.com/)
-* [WordsAPI](https://www.wordsapi.com/)
+* [OMDB](https://www.omdbapi.com/)
+* [Giphy](https://developers.giphy.com/docs/api#quick-start-guide)
 
 _both APIs are free of use for these requirements_
 ​
 ## Future functions
 ​
-* User able to search/find desired song
-* User will then be able to target specific reoccuring words in the song
-* User is then able to pick through several suggested synonyms in the song to create a funny parody
+* User able to search/find desired movie
+* User will then be able to target selected movie
+* User is then able to search through related gifs below
+* More features will be implemented after
 
