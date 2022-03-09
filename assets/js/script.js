@@ -1,6 +1,6 @@
-const searchForm = document.querySelector('#search-form')
-const inputTxt = document.querySelector('#inputText')
-const searchLog = document.createElement('div')
+var searchForm = document.querySelector('#search-form')
+var inputTxt = document.querySelector('#inputText')
+var array = JSON.parse(localStorage.getItem("History")) || [];
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -10,6 +10,7 @@ var formSubmitHandler = function (event) {
   if (movieName) {
     getMovie(movieName);
     getGiphy(movieName);
+    populateHistory(movieName)
   }
 };
 
@@ -27,7 +28,7 @@ var getMovie = function (movie) {
   .catch(function (err) {
     console.log(err);
   });
-}
+};
 
 var getGiphy = function (movie) {
   var gifKey = 'fAFBnnC9FOkKZx1M1xDCXcB0TBTgjgCJ'
@@ -44,6 +45,22 @@ fetch(fetchURL)
   .catch(function (err) {
     console.log(err);
   });
+};
+
+// create function for history Log
+var populateHistory (movie){
+  Array.push(movieName);
+  localStorage.setItem("History", JSON.stringify(array));
+  renderHistory();
+};
+
+for(let i = 0; i < array.length; i++){
+  function(){
+    var searchLogEl = document.createElement('button');
+    searchLogEl.textContent = array[i];
+    searchLogEl.classList.add('btn btn-primary');
+    searchLogEl.append(searchLogEl);
+  };
 }
 
 searchForm.addEventListener('submit', formSubmitHandler);
