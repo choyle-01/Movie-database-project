@@ -78,10 +78,11 @@ var getGiphy = function (movie) {
     .then(function (object) {
       gifResults.innerHTML = '';
       console.log(object);
-      // add class to gif container, make loop 5 for now, get right data path
       for (let i = 0; i < 5; i++) {
-         var gif = object.data[i].url;
-         var gifEl = document.createElement('iframe');
+         var gif = object.data[i].images.original.url;
+         var gifEl = document.createElement('img');
+         gifEl.classList.add('gifs')
+         gifEl.setAttribute('alt', movie + ' gif')
          gifEl.src = gif;
 
          gifResults.append(gifEl);
@@ -93,16 +94,6 @@ var getGiphy = function (movie) {
 };
 console.log(getGiphy);
 
-// 1 try img element, doesn't load anything
-// 2 try iframe element, loads the whole page not the gif as intended. progress
-// 2.1 getting error warnings of preload failure
-// 
-
-
-
-
-// <iframe src="https://giphy.com/embed/7K1OQmbCnKAa4" width="480" height="269" frameBorder="0" class="giphy-embed"></iframe><p>
-//   <a href="https://giphy.com/gifs/film-martial-arts-7K1OQmbCnKAa4">via GIPHY</a></p>
 
 // create function for history Log
 // var populateHistory = function (movieName) {
