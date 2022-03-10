@@ -30,14 +30,14 @@ var getMovie = function (movie) {
       movieResults.innerHTML = '';
       for (let i = 0; i < data.Search.length; i++) {
         var title = (data.Search[i].Title);
-        var titleResult = document.createElement('h5')
+        var titleResult = document.createElement('h5');
         titleResult.textContent = title;
         movieResults.append(titleResult);
 
-        var type = (data.Search[i].Type);
-        var typeResult = document.createElement('p');
-        typeResult.textContent = type;
-        movieResults.append(typeResult);
+        // var type = (data.Search[i].Type);
+        // var typeResult = document.createElement('p');
+        // typeResult.textContent = type;
+        // movieResults.append(typeResult);
 
         var releaseYear = (data.Search[i].Year);
         var releaseYearResult = document.createElement('p');
