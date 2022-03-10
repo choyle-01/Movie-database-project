@@ -16,6 +16,7 @@ var formSubmitHandler = function (event) {
   }
 };
 
+// getMovie fetch 
 var getMovie = function (movie) {
   var movieKey = '99f8cdba'
   var fetchURL = `http://www.omdbapi.com/?apikey=${movieKey}&s=${movie}`;
@@ -63,31 +64,45 @@ var getMovie = function (movie) {
     });
 };
 
+
+// getGiphy fetch
 var getGiphy = function (movie) {
   var gifKey = 'fAFBnnC9FOkKZx1M1xDCXcB0TBTgjgCJ'
-  var fetchURL = `https://api.giphy.com/v1/channels/search?api_key=${gifKey}&q=${movie}`;
+  var fetchURL = `https://api.giphy.com/v1/gifs/search?api_key=${gifKey}&q=${movie}`;
 
 
   fetch(fetchURL)
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
+    .then(function (object) {
       gifResults.innerHTML = '';
-      console.log(data);
+      console.log(object);
       // add class to gif container, make loop 5 for now, get right data path
-      for (let i = 0; i < data.length[5]; i++) {
-         var gif = data.url;
-         var gifEl = document.createElement('img');
+      for (let i = 0; i < 5; i++) {
+         var gif = object.data[i].url;
+         var gifEl = document.createElement('iframe');
          gifEl.src = gif;
+
+         gifResults.append(gifEl);
       }
     })
   .catch(function (err) {
         console.log(err);
   });
 };
+console.log(getGiphy);
 
-console.log(getGiphy)
+// 1 try img element, doesn't load anything
+// 2 try iframe element, loads the whole page not the gif as intended. progress
+// 2.1 getting error warnings of preload failure
+// 
+
+
+
+
+// <iframe src="https://giphy.com/embed/7K1OQmbCnKAa4" width="480" height="269" frameBorder="0" class="giphy-embed"></iframe><p>
+//   <a href="https://giphy.com/gifs/film-martial-arts-7K1OQmbCnKAa4">via GIPHY</a></p>
 
 // create function for history Log
 // var populateHistory = function (movieName) {
