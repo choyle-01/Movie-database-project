@@ -30,31 +30,22 @@ var getMovie = function (movie) {
       console.log(data.Search);
       movieResults.innerHTML = "";
       for (let i = 0; i < data.Search.length; i++) {
-<<<<<<< HEAD
-        var title = (data.Search[i].Title);
-        var titleResult = document.createElement('h5');
-        titleResult.textContent = title;
-        movieResults.append(titleResult);
-
-        // var type = (data.Search[i].Type);
-        // var typeResult = document.createElement('p');
-        // typeResult.textContent = type;
-        // movieResults.append(typeResult);
-=======
         var title = data.Search[i].Title;
         var titleResult = document.createElement("h5");
         titleResult.textContent = title;
+        titleResult.classList.add('titleClass', 'card-title');
         movieResults.append(titleResult);
 
-        var type = data.Search[i].Type;
-        var typeResult = document.createElement("p");
-        typeResult.textContent = type;
-        movieResults.append(typeResult);
->>>>>>> e58bcf3d909d22bfabc6f7b2973e59cddae2e719
+        // var type = data.Search[i].Type;
+        // var typeResult = document.createElement("p");
+        // typeResult.textContent = type;
+        // typeResult.classList.add('typeClass');
+        // movieResults.append(typeResult);
 
         var releaseYear = data.Search[i].Year;
         var releaseYearResult = document.createElement("p");
         releaseYearResult.textContent = releaseYear;
+        releaseYearResult.classList.add('releaseClass', 'card-text');
         movieResults.append(releaseYearResult);
 
         var imdbLink = data.Search[i].imdbID;
@@ -62,12 +53,14 @@ var getMovie = function (movie) {
         imdbLinkResult.setAttribute("target", "_blank");
         imdbLinkResult.href = `https://www.imdb.com/title/${imdbLink}/`;
         imdbLinkResult.textContent = `https://www.imdb.com/title/${imdbLink}/`;
+        imdbLinkResult.classList.add('imdbClass', 'card-text')
         movieResults.append(imdbLinkResult);
 
         var poster = data.Search[i].Poster;
         var posterResults = document.createElement("img");
         posterResults.setAttribute("alt", title + " Poster");
         posterResults.src = poster;
+        posterResults.classList.add('posterClass', 'img-fluid', 'rounded-start');
         movieResults.append(posterResults);
       }
     })
