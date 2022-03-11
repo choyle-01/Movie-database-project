@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <div class="card text-center" style="width: 25rem">
+    <div class="card text-center">
         <div class="card-header">
             Git Get Gifs
         </div>
         <div class="card-body">
             <form id="search-form">
                 <div class="row mb-3">
-                    <label for="inputText" class="col-sm-2 col-form-label" style="font-size: 11px; font-weight: bold;">Search movie</label>
+                    <label for="inputText" class="col-sm-2 col-form-label" style="font-size: 20px; font-weight: bold;">Search movie:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputText" placeholder='"Enter the Dragon"'/>
                     </div>
@@ -31,29 +31,17 @@
         </div>
     </div>
 
-    <div class="card text-center row" style="width: 22rem;">
+    <div class="card text-center row">
         <div class="card-body col search-log">
           <h5 class="card-title">Search log</h5>
         </div>
       </div>
 
-<!-- 
-      <div id="container">
-          <div id="movieh5">
-              <div id="yearP">
-                  <div id="imdbLink"></div>
-              </div>
-          </div>
-          <div id="moviePoster"></div>
-      </div> -->
-
-
-
-      <container id="results">
-          <div class="card row" style="max-width: 600px;">
+      <container id="results" class="row">
+          <div class="card col-md-10" style="max-width: 640px;">
               <div id="movie-result"></div>
           </div>
-          <div id="gif-result"></div>
+          <div id="gif-result" class="col float-center"></div>
       </container>
 
 

@@ -31,20 +31,20 @@ var getMovie = function (movie) {
       movieResults.innerHTML = "";
       for (let i = 0; i < data.Search.length; i++) {
         var newDiv = document.createElement("div");
-        newDiv.classList.add("card-body", "m-3");
+        newDiv.classList.add("card-body", "m-3", "text-center");
 
         var cardEl = document.createElement("div");
         cardEl.classList.add("card", "row");
         var title = data.Search[i].Title;
         var titleResult = document.createElement("h5");
         titleResult.textContent = title;
-        titleResult.classList.add("card-title", "text-center", "col-md-4");
+        titleResult.classList.add("card-title", "text-center", "col-md-12");
         newDiv.appendChild(titleResult);
 
         var releaseYear = data.Search[i].Year;
         var releaseYearResult = document.createElement("p");
         releaseYearResult.textContent = releaseYear;
-        releaseYearResult.classList.add("card-text", "text-center", "col-md-4");
+        releaseYearResult.classList.add("card-text", "text-center", "col-md-12");
         newDiv.appendChild(releaseYearResult);
 
         var imdbLink = data.Search[i].imdbID;
@@ -52,14 +52,14 @@ var getMovie = function (movie) {
         imdbLinkResult.setAttribute("target", "_blank");
         imdbLinkResult.href = `https://www.imdb.com/title/${imdbLink}/`;
         imdbLinkResult.textContent = `https://www.imdb.com/title/${imdbLink}/`;
-        imdbLinkResult.classList.add("card-text", "text-center", "col-md-4");
+        imdbLinkResult.classList.add("card-text", "text-center", "col-md-12");
         newDiv.appendChild(imdbLinkResult);
 
         var poster = data.Search[i].Poster;
         var posterResults = document.createElement("img");
         posterResults.setAttribute("alt", title + " Poster");
         posterResults.src = poster;
-        posterResults.classList.add("img-fluid", "rounded-start", "col-md-4");
+        posterResults.classList.add("img-fluid", "col-md-6");
         newDiv.appendChild(posterResults);
 
         movieResults.appendChild(newDiv);
@@ -85,13 +85,13 @@ var getGiphy = function (movie) {
     .then(function (object) {
       gifResults.innerHTML = "";
       console.log(object);
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 10; i++) {
         var newDiv = document.createElement('div');
         newDiv.classList.add("card", "m-3");
 
         var gif = object.data[i].images.original.url;
         var gifEl = document.createElement("img");
-        gifEl.classList.add("gifs", "card-body");
+        gifEl.classList.add("gifs", "card-body", "img-fluid");
         gifEl.setAttribute("alt", movie + " gif");
         gifEl.src = gif;
 
