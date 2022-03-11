@@ -5,44 +5,6 @@ var gifResults = document.querySelector("#gif-result");
 var searchLog = document.querySelector(".search-log");
 var array = JSON.parse(localStorage.getItem("History")) || [];
 
-buildMovieCard() {
-  // var cardEl =  document.createElement("div");
-  // cardEl.classList.add('card', 'row');
-  var title = data.Search[i].Title;
-  var titleResult = document.createElement("h5");
-  titleResult.textContent = title;
-  titleResult.classList.add('card-title', 'text-center', 'col-md-4');
-  movieResults.append(titleResult);
-  
-  // var type = data.Search[i].Type;
-  // var typeResult = document.createElement("p");
-  // typeResult.textContent = type;
-  // typeResult.classList.add('typeClass');
-  // movieResults.append(typeResult);
-  
-  var releaseYear = data.Search[i].Year;
-  var releaseYearResult = document.createElement("p");
-  releaseYearResult.textContent = releaseYear;
-  releaseYearResult.classList.add('card-text', 'text-center', 'col-md-4');
-  movieResults.append(releaseYearResult);
-  
-  var imdbLink = data.Search[i].imdbID;
-  var imdbLinkResult = document.createElement("a");
-  imdbLinkResult.setAttribute("target", "_blank");
-  imdbLinkResult.href = `https://www.imdb.com/title/${imdbLink}/`;
-  imdbLinkResult.textContent = `https://www.imdb.com/title/${imdbLink}/`;
-  imdbLinkResult.classList.add('card-text', 'text-center', 'col-md-4')
-  movieResults.append(imdbLinkResult);
-  
-  var poster = data.Search[i].Poster;
-  var posterResults = document.createElement("img");
-  posterResults.setAttribute("alt", title + " Poster");
-  posterResults.src = poster;
-  posterResults.classList.add('img-fluid', 'rounded-start', 'col-md-4');
-  movieResults.append(posterResults);
-};
-
-
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
@@ -68,7 +30,41 @@ var getMovie = function (movie) {
       console.log(data.Search);
       movieResults.innerHTML = "";
       for (let i = 0; i < data.Search.length; i++) {
-        buildMovieCard(data[i]);
+        var newDiv = document.createElement("div");
+        newDiv.classList.add("card-body", "m-3");
+
+        var cardEl = document.createElement("div");
+        cardEl.classList.add("card", "row");
+        var title = data.Search[i].Title;
+        var titleResult = document.createElement("h5");
+        titleResult.textContent = title;
+        titleResult.classList.add("card-title", "text-center", "col-md-4");
+        newDiv.appendChild(titleResult);
+
+        var releaseYear = data.Search[i].Year;
+        var releaseYearResult = document.createElement("p");
+        releaseYearResult.textContent = releaseYear;
+        releaseYearResult.classList.add("card-text", "text-center", "col-md-4");
+        newDiv.appendChild(releaseYearResult);
+
+        var imdbLink = data.Search[i].imdbID;
+        var imdbLinkResult = document.createElement("a");
+        imdbLinkResult.setAttribute("target", "_blank");
+        imdbLinkResult.href = `https://www.imdb.com/title/${imdbLink}/`;
+        imdbLinkResult.textContent = `https://www.imdb.com/title/${imdbLink}/`;
+        imdbLinkResult.classList.add("card-text", "text-center", "col-md-4");
+        newDiv.appendChild(imdbLinkResult);
+
+        var poster = data.Search[i].Poster;
+        var posterResults = document.createElement("img");
+        posterResults.setAttribute("alt", title + " Poster");
+        posterResults.src = poster;
+        posterResults.classList.add("img-fluid", "rounded-start", "col-md-4");
+        newDiv.appendChild(posterResults);
+
+        movieResults.appendChild(newDiv);
+
+        movieResults.classList.add("movie-results-card");
       }
     })
 
@@ -90,13 +86,17 @@ var getGiphy = function (movie) {
       gifResults.innerHTML = "";
       console.log(object);
       for (let i = 0; i < 5; i++) {
+        var newDiv = document.createElement('div');
+        newDiv.classList.add("card", "m-3");
+
         var gif = object.data[i].images.original.url;
         var gifEl = document.createElement("img");
-        gifEl.classList.add("gifs");
+        gifEl.classList.add("gifs", "card-body");
         gifEl.setAttribute("alt", movie + " gif");
         gifEl.src = gif;
 
-        gifResults.append(gifEl);
+        newDiv.append(gifEl);
+        gifResults.appendChild(gifEl);
       }
     })
     .catch(function (err) {
@@ -119,7 +119,7 @@ var renderHistory = function () {
     (function () {
       var histBtn = document.createElement("button");
       histBtn.textContent = array[i];
-      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1", 'history-btn');
+      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1", "history-btn");
       searchLog.append(histBtn);
 
       histBtn.addEventListener("click", function () {
