@@ -30,27 +30,15 @@ var getMovie = function (movie) {
       console.log(data.Search);
       movieResults.innerHTML = "";
       for (let i = 0; i < data.Search.length; i++) {
-<<<<<<< HEAD
-        var title = (data.Search[i].Title);
-        var titleResult = document.createElement('h5');
-        titleResult.textContent = title;
-        movieResults.append(titleResult);
-
-        // var type = (data.Search[i].Type);
-        // var typeResult = document.createElement('p');
-        // typeResult.textContent = type;
-        // movieResults.append(typeResult);
-=======
         var title = data.Search[i].Title;
         var titleResult = document.createElement("h5");
         titleResult.textContent = title;
         movieResults.append(titleResult);
 
-        var type = data.Search[i].Type;
-        var typeResult = document.createElement("p");
-        typeResult.textContent = type;
-        movieResults.append(typeResult);
->>>>>>> e58bcf3d909d22bfabc6f7b2973e59cddae2e719
+        // var type = data.Search[i].Type;
+        // var typeResult = document.createElement("p");
+        // typeResult.textContent = type;
+        // movieResults.append(typeResult);
 
         var releaseYear = data.Search[i].Year;
         var releaseYearResult = document.createElement("p");
@@ -119,7 +107,7 @@ var renderHistory = function () {
     (function () {
       var histBtn = document.createElement("button");
       histBtn.textContent = array[i];
-      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1");
+      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1", 'history-btn');
       searchLog.append(histBtn);
 
       histBtn.addEventListener("click", function () {
