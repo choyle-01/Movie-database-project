@@ -112,7 +112,7 @@ var renderHistory = function () {
     (function () {
       var histBtn = document.createElement("button");
       histBtn.textContent = array[i];
-      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1");
+      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1", 'history-btn');
       searchLog.append(histBtn);
 
       histBtn.addEventListener("click", function () {
