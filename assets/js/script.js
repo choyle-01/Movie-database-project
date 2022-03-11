@@ -5,6 +5,44 @@ var gifResults = document.querySelector("#gif-result");
 var searchLog = document.querySelector(".search-log");
 var array = JSON.parse(localStorage.getItem("History")) || [];
 
+buildMovieCard() {
+  // var cardEl =  document.createElement("div");
+  // cardEl.classList.add('card', 'row');
+  var title = data.Search[i].Title;
+  var titleResult = document.createElement("h5");
+  titleResult.textContent = title;
+  titleResult.classList.add('card-title', 'text-center', 'col-md-4');
+  movieResults.append(titleResult);
+  
+  // var type = data.Search[i].Type;
+  // var typeResult = document.createElement("p");
+  // typeResult.textContent = type;
+  // typeResult.classList.add('typeClass');
+  // movieResults.append(typeResult);
+  
+  var releaseYear = data.Search[i].Year;
+  var releaseYearResult = document.createElement("p");
+  releaseYearResult.textContent = releaseYear;
+  releaseYearResult.classList.add('card-text', 'text-center', 'col-md-4');
+  movieResults.append(releaseYearResult);
+  
+  var imdbLink = data.Search[i].imdbID;
+  var imdbLinkResult = document.createElement("a");
+  imdbLinkResult.setAttribute("target", "_blank");
+  imdbLinkResult.href = `https://www.imdb.com/title/${imdbLink}/`;
+  imdbLinkResult.textContent = `https://www.imdb.com/title/${imdbLink}/`;
+  imdbLinkResult.classList.add('card-text', 'text-center', 'col-md-4')
+  movieResults.append(imdbLinkResult);
+  
+  var poster = data.Search[i].Poster;
+  var posterResults = document.createElement("img");
+  posterResults.setAttribute("alt", title + " Poster");
+  posterResults.src = poster;
+  posterResults.classList.add('img-fluid', 'rounded-start', 'col-md-4');
+  movieResults.append(posterResults);
+};
+
+
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
@@ -30,38 +68,7 @@ var getMovie = function (movie) {
       console.log(data.Search);
       movieResults.innerHTML = "";
       for (let i = 0; i < data.Search.length; i++) {
-        var title = data.Search[i].Title;
-        var titleResult = document.createElement("h5");
-        titleResult.textContent = title;
-        titleResult.classList.add('titleClass', 'card-title');
-        movieResults.append(titleResult);
-
-        // var type = data.Search[i].Type;
-        // var typeResult = document.createElement("p");
-        // typeResult.textContent = type;
-        // typeResult.classList.add('typeClass');
-        // movieResults.append(typeResult);
-
-        var releaseYear = data.Search[i].Year;
-        var releaseYearResult = document.createElement("p");
-        releaseYearResult.textContent = releaseYear;
-        releaseYearResult.classList.add('releaseClass', 'card-text');
-        movieResults.append(releaseYearResult);
-
-        var imdbLink = data.Search[i].imdbID;
-        var imdbLinkResult = document.createElement("a");
-        imdbLinkResult.setAttribute("target", "_blank");
-        imdbLinkResult.href = `https://www.imdb.com/title/${imdbLink}/`;
-        imdbLinkResult.textContent = `https://www.imdb.com/title/${imdbLink}/`;
-        imdbLinkResult.classList.add('imdbClass', 'card-text')
-        movieResults.append(imdbLinkResult);
-
-        var poster = data.Search[i].Poster;
-        var posterResults = document.createElement("img");
-        posterResults.setAttribute("alt", title + " Poster");
-        posterResults.src = poster;
-        posterResults.classList.add('posterClass', 'img-fluid', 'rounded-start');
-        movieResults.append(posterResults);
+        buildMovieCard(data[i]);
       }
     })
 
