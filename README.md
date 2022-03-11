@@ -18,3 +18,8 @@ _both APIs are free of use for these requirements_
 * User is then able to search through related gifs below
 * More features will be implemented after
 
+var type = data.Search[i].Type;
+    var typeResult = document.createElement("p");
+    typeResult.textContent = type;
+    typeResult.classList.add('typeClass');
+    movieResults.append(typeResult);
