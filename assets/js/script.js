@@ -63,7 +63,6 @@ var getMovie = function (movie) {
         newDiv.appendChild(posterResults);
 
         movieResults.appendChild(newDiv);
-
         movieResults.classList.add("movie-results-card");
       }
     })
@@ -119,7 +118,7 @@ var renderHistory = function () {
     (function () {
       var histBtn = document.createElement("button");
       histBtn.textContent = array[i];
-      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1", "history-btn");
+      histBtn.classList.add("btn", "btn-primary", "p-3", "m-1", "history-btn", "btn-grad");
       searchLog.append(histBtn);
 
       histBtn.addEventListener("click", function () {
