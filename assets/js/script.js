@@ -23,7 +23,7 @@ var formSubmitHandler = function (event) {
 
 var getMovie = function (movie) {
   var movieKey = "99f8cdba";
-  var fetchURL = `http://www.omdbapi.com/?apikey=${movieKey}&s=${movie}`;
+  var fetchURL = `https://www.omdbapi.com/?apikey=${movieKey}&s=${movie}`;
 
   fetch(fetchURL)
     .then(function (response) {

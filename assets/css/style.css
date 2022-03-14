@@ -9,6 +9,10 @@ h1 {
   font-family: "Oxygen", sans-serif;
 }
 
+a {
+  float: left;
+}
+
 /* main page, TODO: fix gap between */
 #results {
   background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
