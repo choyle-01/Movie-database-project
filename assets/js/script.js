@@ -5,6 +5,8 @@ var gifResults = document.querySelector("#gif-result");
 var searchLog = document.querySelector(".search-log");
 var array = JSON.parse(localStorage.getItem("History")) || [];
 
+// Function that runs when the form is submitted. Passes the search term off to functions to fetch the movie info, giphys, and populates search history
+
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
@@ -17,7 +19,8 @@ var formSubmitHandler = function (event) {
   }
 };
 
-// getMovie fetch
+// API fetch that gets information on the movie that was searched. Creates the containers to display them in. Also sets up bootsrap styling  
+
 var getMovie = function (movie) {
   var movieKey = "99f8cdba";
   var fetchURL = `http://www.omdbapi.com/?apikey=${movieKey}&s=${movie}`;
@@ -72,7 +75,7 @@ var getMovie = function (movie) {
     });
 };
 
-// getGiphy fetch
+// API fetch that gets the giphy results for the search term as well and displays them in a simular way to the movie function
 var getGiphy = function (movie) {
   var gifKey = "fAFBnnC9FOkKZx1M1xDCXcB0TBTgjgCJ";
   var fetchURL = `https://api.giphy.com/v1/gifs/search?api_key=${gifKey}&q=${movie}`;
@@ -105,11 +108,14 @@ var getGiphy = function (movie) {
 console.log(getGiphy);
 
 // create function for history Log
+
 var populateHistory = function (movie) {
   array.push(movie);
   window.localStorage.setItem("History", JSON.stringify(array));
   renderHistory();
 };
+
+// pulls the stored info from local storage and uses it to create buttons for the local storage. Has an event listener to retrieve the info if the history buttons are pressed
 
 var renderHistory = function () {
   searchLog.innerHTML = "";

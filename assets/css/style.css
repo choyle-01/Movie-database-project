@@ -1,51 +1,78 @@
 .history-btn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Oxygen", sans-serif;
 }
 
 /* main page, TODO: fix gap between */
 #results {
-    background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
+  background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
 }
 
-.movie-results-card{
-    background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+label {
+    font-family: 'Oxygen', sans-serif;
+}
+
+.movie-results-card {
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
 
 /* Search log */
-.btn-grad {background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%)}
 .btn-grad {
-   margin: 10px;
-   padding: 15px 45px;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;            
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
- }
+  background-image: linear-gradient(
+    to right,
+    #003973 0%,
+    #e5e5be 51%,
+    #003973 100%
+  );
+}
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
 
- .btn-grad:hover {
-   background-position: right center;
-   color: #fff;
-   text-decoration: none;
- }
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
 
+.accordion-item {
+  background-color: #dcd9d4;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    radial-gradient(
+      at 50% 0%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(0, 0, 0, 0.5) 50%
+    );
+  background-blend-mode: soft-light, screen;
+}
 
- .accordion-item {
-    background-color: #DCD9D4;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
-    background-blend-mode: soft-light,screen;
- }
+/* input form */
+.color1 {
+  background-color: #dcd9d4;
+}
 
- /* input form */
- .color1{
-    background-color: #DCD9D4;
- }
+.color2 {
+  background-color: #9c835a;
+  font-weight: bold;
+}
 
- .color2 {
-     background-color: #9c835a;
-     font-weight: bold;
- }
+.card-title {
+    font-family: 'Oxygen', sans-serif;
+}
