@@ -18,7 +18,7 @@ The project site can be found [here](https://choyle-01.github.io/Movie-database-
 The GitHub repository can be found [here](https://github.com/choyle-01/Movie-database-project)
 
 ## Visuals 
-
+![photo of finished website](./assets/images/API-App.png)
 
 ## Acknowledgments
 Throughout his project we were both able to approach work flow in a way that made sure neither one of us were overcontributing to the project. We split up a lot of the tasks that needed to be done between styling, HTML layout, and javaScript. If we both needed to be working on javaSctipt or styling layout we would take turns working on that specific thing and share a screen between the two of us so we could both work on it. We would split off and work on seperate things at times but we did a lot of team work as well. Neither of us felt overworked or stressed and we got our project finished in a timely efficient manner.
